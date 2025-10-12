@@ -1,9 +1,13 @@
 class CreditCalculator
-  def get_offer_data(json_data)
+  def load_credit_conditions(credit_conditions)
+
+  end
+
+  def load_offer_data(json_data)
     # считать жсон в объекты класса оффер
   end
 
-  def get_survey_results(survey_data)
+  def load_survey_results(survey_data)
 
   end
 

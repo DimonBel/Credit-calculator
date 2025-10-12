@@ -8,5 +8,5 @@ end
 
 post '/process' do
   content_type :json
-  RequestController.new.process_request(request.body.read)
+  RequestController.new.handle_request(request.body.read)
 end
