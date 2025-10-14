@@ -27,5 +27,9 @@ class RequestController
     calculator.load_credit_conditions(credit_conditions)
     calculator.load_survey_results(survey_data)
     calculator.load_offer_data(json_data)
+
+    sorted_offers = calculator.sort_offers_desc
+
+    nil unless sorted_offers
   end
 end
