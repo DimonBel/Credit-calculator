@@ -1,9 +1,15 @@
-require_relative '../models/config_data'
 require_relative '../services/credit_calculator'
 require_relative '../services/request_processor'
 require_relative '../services/survey_data_fetcher'
 
 class RequestController
+  attr_accessor :offer_data_json
+
+  # put this here to avoid reading from disk every time
+  def load_offer_data(offer_data_json)
+    @offer_data_json = offer_data_json
+  end
+
   def handle_request(request_body)
     # parse and validate request
     valid_request, credit_conditions = RequestProcessor.new.process_request(request_body)
@@ -19,14 +25,11 @@ class RequestController
       return
     end
 
-    # load data from json
-    json_data = ConfigData.load
-
     # find best offers
     calculator = CreditCalculator.new
     calculator.load_credit_conditions(credit_conditions)
     calculator.load_survey_results(survey_data)
-    calculator.load_offer_data(json_data)
+    calculator.load_offer_data(@offer_data_json)
 
     sorted_offers = calculator.sort_offers_desc
 
