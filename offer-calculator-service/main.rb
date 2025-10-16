@@ -6,6 +6,8 @@ get '/' do
   'Offer Calculator Service Up'
 end
 
+# перенести сюда считывание жсона с диска
+
 post '/process' do
   content_type :json
   response = RequestController.new.handle_request(request.body.read)
