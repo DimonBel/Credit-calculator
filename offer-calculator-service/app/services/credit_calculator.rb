@@ -1,4 +1,4 @@
-require_relative 'lib/offer_operations'
+require_relative 'offer_operations/offer_operations'
 
 class CreditCalculator
   attr_accessor :credit_conditions, :credit_offers, :survey_data

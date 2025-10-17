@@ -1,4 +1,4 @@
-require_relative 'offer_data_point'
+require_relative 'offer_data_point/offer_data_point'
 
 class OfferOperations
   def create_offer_list(credit_offers)
@@ -6,6 +6,8 @@ class OfferOperations
 
     credit_offers.each do |credit_offer|
       offer_obj = OfferDataPoint.new
+
+      offer_obj.
 
       offer_obj.credit_name_full = credit_offer['credit_name_full']
       offer_obj.bank_name = credit_offer['bank_name']
