@@ -1,12 +1,14 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route} from "react-router";
+import { BrowserRouter, Routes, Route} from "react-router"
 import App from './pages/App.tsx'
+import Calculator from "./pages/Calculator.tsx"
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} />
+      <Route path='/calculator' element={<Calculator />} />
     </Routes>
   </BrowserRouter>,
 )
