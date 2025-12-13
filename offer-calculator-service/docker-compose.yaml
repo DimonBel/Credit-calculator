@@ -1,0 +1,9 @@
+services:
+  offer-calculator-service:
+    build: .
+    container_name: offer-calculator
+    command: ["bundle", "exec", "ruby", "main.rb"]
+    ports:
+      - "4567:4567"
+    env_file:
+      - .env
